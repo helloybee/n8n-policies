@@ -1,0 +1,14 @@
+services:
+  url-shortener:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - url_data:/data
+    environment:
+      - URL_SHORTENER_BASE_URL=http://localhost:5000
+      - PORT=5000
+    restart: unless-stopped
+
+volumes:
+  url_data:
